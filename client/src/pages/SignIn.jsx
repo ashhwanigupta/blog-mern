@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Label, TextInput, Button, Alert, Spinner } from "flowbite-react";
-import {
-  signInStart,
-  signInFailure,
-  signInSuccess,
-} from "../redux/user/userSlice";
+import {  signInStart,  signInFailure,  signInSuccess,} from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import OAuth from '../components/OAuth'
+
 const SignIn = () => {
 
   const [formData, setFormData] = useState({});
@@ -44,7 +42,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen mt-20 ">
+    <div className="h-fit mt-20 ">
+      <div className="h-20">
+
+      </div>
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}
         <div className="flex-1">
@@ -83,7 +84,6 @@ const SignIn = () => {
             <Button
               type="submit"
               gradientDuoTone="purpleToPink"
-              className=""
               disabled={loading}
             >
               {loading ? (
@@ -95,6 +95,7 @@ const SignIn = () => {
                 "Sign In"
               )}
             </Button>
+            <OAuth/>
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Don't have an Account? </span>
@@ -108,6 +109,9 @@ const SignIn = () => {
             </Alert>
           )}
         </div>
+      </div>
+      <div className="h-52">
+
       </div>
     </div>
   );
